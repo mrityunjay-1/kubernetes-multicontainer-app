@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: reactapp
+  template:
+    metadata:
+      labels:
+        component: reactapp
+    spec:
+      containers:
+      - name: client
+        image: mrityunjay1/multicontainer_docker_client
+        ports:
+        - containerPort: 3000

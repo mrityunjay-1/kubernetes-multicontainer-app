@@ -1,0 +1,16 @@
+# just for reference no more use of this file for now.
+# instead of this NodePort Kind i am using clusterIP for networking
+# it's a kind of Service object(for networking) inside a cluster only no body from outside of this cluster
+# can use this
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-node-port
+spec:
+  type: NodePort
+  selector:
+    component: reactapp
+  ports:
+    - port: 3050
+      targetPort: 3000
+      nodePort: 31515
